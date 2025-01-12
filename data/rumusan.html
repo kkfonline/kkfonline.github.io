@@ -651,18 +651,17 @@ td button:active {
     left: 0;
     width: 100%;
     height: 110%;
-    background-image: url('https://drive.google.com/thumbnail?id=1ArB-q1Amx_E6GhbFrzDyaA3O9Gqh__zG'); 
+    background-image: url('/GAMBAR/'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
     z-index: -1; 
     opacity:0.2;
 }
-    </style>
+</style>
 </head>
 <body>
-
-  <div class="menu">
+<div class="menu">
     <div class="container" onclick="toggleMenu(this)">
         <div class="bar1"></div>
         <div class="bar2"></div>
@@ -670,22 +669,94 @@ td button:active {
     </div>
     <div class="menu-items" id="menuItems">
         <button class="nav-button" onclick="showPage('halaman1')">HOME</button>
+        <button class="nav-button" onclick="showPage('halaman2')">HOME</button>
         <button class="nav-button" onclick="location.reload()">REFRES</button>
     </div>
 </div>
 <div id="halaman1" class="page active">
+  <div class="wrapper">
+    <div class="bagron"></div>
+  <div class="menuikon">
+    <button onclick="showPage('halaman2')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1Egeblfc_6oIKOiA7FWzjXd0CODbbba86" alt="icon">
+        <span>Thoharoh</span>
+    </button>
+    <button onclick="showPage('halaman3')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EhmaupnG_gAidjDdXOpwAj0tBlWM49Es" alt="icon">
+        <span>Sholat</span>
+    </button>
+    <button onclick="showPage('halaman4')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EaDfdYdrZX1panESq0ynsRYT31azkPJL" alt="icon">
+        <span>Zakat</span>
+    </button>
+    <button onclick="showPage('halaman5')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1ETksd2iX16lvN3ZAZE9bHkeARRDQaNFw" alt="icon">
+        <span>Puasa</span>
+    </button>
+    <button onclick="showPage('halaman6')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EQmbH92GxECA9_ziW244w2fkwqxZCVe4" alt="icon">
+        <span>Haji</span>
+    </button>
+    <button onclick="showPage('halaman7')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EYSzHU3H-fSUp_gqpqCa4h7Tkb0G-4eN" alt="icon">
+        <span>Muamalah</span>
+    </button>
+    <button onclick="showPage('halaman8')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EVvspVN62Idghho2L1V3_UgkvRSggbwh" alt="icon">
+        <span>Munakahah</span>
+    </button>
+    <button onclick="showPage('halaman9')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1F1NihzVuxx_ntSx2vZCdotnkiZtIqCuB" alt="icon">
+        <span>Jinayah & Qodlo</span>
+    </button>
+    <button onclick="showPage('halaman10')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EPXAxMMd9Ai-xVavvGUDDKU5VIDeOjID" alt="icon">
+        <span>Kurban & Nadzar</span>
+    </button>
+    <button onclick="showPage('halaman11')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EM-PjYoCgsOReknkw8_1M-PnIqCqERs7" alt="icon">
+        <span>Makanan</span>
+    </button>
+    <button onclick="showPage('halaman12')">
+        <img class="ikon" src="https://drive.google.com/thumbnail?id=1EK_Dlkzagoge218yRobMiUSGq7WSLugQ" alt="icon">
+        <span>Lain-lain</span>
+    </button>
+    <button onclick="showPage('halaman13')">
+      <img class="ikon" src="https://drive.google.com/thumbnail?id=1F1M3CHBFgFhjxYKksUD8vdIyn4JbOGXc" alt="icon">
+      <span>Amalan & Do'a</span>
+  </button>
+</div>
+</div>
+<script>
+  function toggleMenu(x) {
+      x.classList.toggle("change");
+      var menuItems = document.getElementById('menuItems');
+      menuItems.classList.toggle('show');
+  }
+
+  function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+      document.getElementById('menuItems').classList.remove('show');
+      document.querySelector('.container').classList.remove('change');
+  }
+</script>
+</div>
+<div id="halaman2" class="page">
   <!-- Pencarian dan tabel kedua -->
 <div class="search-container">
-  <form action="#" method="GET" class="search-box" id="searchBox2">
-    <input type="text" id="searchInput2" placeholder="" required>
+  <form action="#" method="GET" class="search-box" id="searchBox3">
+    <input type="text" id="searchInput3" placeholder="" required>
     <button class="search-button" type="submit">Cari</button>
   </form>
 </div>
-<span id="searchResult2"></span>
+<span id="searchResult3"></span>
              <!-- Tabel Kedua -->
-  <div class="chat-body" id="chatBody2">
+  <div class="chat-body" id="chatBody3">
     <div class="TABEL">
-      <table id="dataTable2">
+      <table id="dataTable3">
         <tbody>
           <tr>
             <th></th>
@@ -696,53 +767,6 @@ td button:active {
     </div>
   </div>
 </div>
-<button class="tombolinput" id="toggleFormBtn1"></button>
-<div id="popupFormContainer1" class="chat-form-container" style="display:none;">
-<form name="chattdata1" id="chatForm1" class="chat-form" method="post" action="">
-    <textarea name="JUDUL" id="judulInput1" class="chat-input1" placeholder="Judul" required></textarea>
-    <textarea name="IBAROH" id="ibaroInput1" class="chat-input2" placeholder="Buat hasil rumusan di sini..." required></textarea>
-    <input class="kirim" type="submit" value="INPUT">
-</form>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const toggleFormBtn1 = document.getElementById('toggleFormBtn1');
-      const popupFormContainer1 = document.getElementById('popupFormContainer1');
-      const form1 = document.forms['chattdata1'];
-      const judulInput1 = document.getElementById('judulInput1');
-      const ibaroInput1 = document.getElementById('ibaroInput1');
-  
-      toggleFormBtn1.addEventListener('click', () => {
-        popupFormContainer1.style.display = (popupFormContainer1.style.display === 'none' || popupFormContainer1.style.display === '') ? 'block' : 'none';
-        form1.reset();
-      });
-  
-      form1.addEventListener('submit', e => {
-        e.preventDefault();
-  
-        const isArabic = /[\u0600-\u06FF]/.test(ibaroInput1.value);
-        ibaroInput1.style.direction = isArabic ? 'rtl' : 'ltr';
-  
-        const formData = new FormData(form1);
-        for (let [key, value] of formData.entries()) {
-          formData.set(key, value.replace(/<br>/g, '\n'));
-        }
-  
-        fetch('https://script.google.com/macros/s/AKfycbzciWu4c6SQq2myL3V5c2CRbNYQt8vMVBpvVtPke1Lki8L8o-jLGESOu6kkCUYISLkO/exec', {
-          method: 'POST',
-          body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('chattdata1 Success!', data);
-          form1.reset();
-        })
-        .catch(error => console.error('chattdata1 Error!', error.message));
-  
-        popupFormContainer1.style.display = 'none';
-        form1.reset();
-      });
-    });
-</script>
 <script>
 function getData(spreadsheetId, range, tableId) {
     const API_KEY = 'AIzaSyA8x0yI8zCPUgZktmGNvQVTzhm1fdZ0K74';
@@ -753,8 +777,13 @@ function getData(spreadsheetId, range, tableId) {
   }
   // Ambil data untuk tabel kedua
   const SPREADSHEET_ID2 = '1G2r0wRQD8GTe6Nz0TCbRP07zwFjrUarDzZOR0d_Sk-4';
-  const RANGE2 = 'sheet1';
+  const RANGE2 = 'sheet0';
   getData(SPREADSHEET_ID2, RANGE2, 'dataTable2');
+  document.addEventListener('DOMContentLoaded', () => {
+  const SPREADSHEET_ID2 = '1G2r0wRQD8GTe6Nz0TCbRP07zwFjrUarDzZOR0d_Sk-4';
+  const RANGE2 = 'sheet1';
+  getData(SPREADSHEET_ID2, RANGE2, 'dataTable3');
+  });
   function processDataAndPopulateTable(data, tableId) {
   const values = data.values;
   const tableBody = document.querySelector(`#${tableId} tbody`);

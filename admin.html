@@ -1,0 +1,47 @@
+<button class="tombolinput" id="toggleFormBtn1"></button>
+<div id="popupFormContainer1" class="chat-form-container" style="display:none;">
+<form name="chattdata1" id="chatForm1" class="chat-form" method="post" action="">
+    <textarea name="JUDUL" id="judulInput1" class="chat-input1" placeholder="Judul" required></textarea>
+    <textarea name="IBAROH" id="ibaroInput1" class="chat-input2" placeholder="Buat hasil rumusan di sini..." required></textarea>
+    <input class="kirim" type="submit" value="INPUT">
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleFormBtn1 = document.getElementById('toggleFormBtn1');
+      const popupFormContainer1 = document.getElementById('popupFormContainer1');
+      const form1 = document.forms['chattdata1'];
+      const judulInput1 = document.getElementById('judulInput1');
+      const ibaroInput1 = document.getElementById('ibaroInput1');
+  
+      toggleFormBtn1.addEventListener('click', () => {
+        popupFormContainer1.style.display = (popupFormContainer1.style.display === 'none' || popupFormContainer1.style.display === '') ? 'block' : 'none';
+        form1.reset();
+      });
+  
+      form1.addEventListener('submit', e => {
+        e.preventDefault();
+  
+        const isArabic = /[\u0600-\u06FF]/.test(ibaroInput1.value);
+        ibaroInput1.style.direction = isArabic ? 'rtl' : 'ltr';
+  
+        const formData = new FormData(form1);
+        for (let [key, value] of formData.entries()) {
+          formData.set(key, value.replace(/<br>/g, '\n'));
+        }
+  
+        fetch('https://script.google.com/macros/s/AKfycbzciWu4c6SQq2myL3V5c2CRbNYQt8vMVBpvVtPke1Lki8L8o-jLGESOu6kkCUYISLkO/exec', {
+          method: 'POST',
+          body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('chattdata1 Success!', data);
+          form1.reset();
+        })
+        .catch(error => console.error('chattdata1 Error!', error.message));
+  
+        popupFormContainer1.style.display = 'none';
+        form1.reset();
+      });
+    });
+</script>
