@@ -1,2 +1,1 @@
-# bahtsulmasail
 # kkfonline.github.io
