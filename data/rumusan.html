@@ -620,7 +620,7 @@ td button:active {
 .menuikon button {
     display: flex;
     width: 100px;
-    height: 110px;
+    height: 120px;
     flex-direction: column;
     align-items: center;
     gap: 5px; 
@@ -639,6 +639,7 @@ td button:active {
 .menuikon button img {
     width: 50px; 
     height: 50px; 
+    margin-top: 20%;
 }
 .menuikon button span {
     font-size: 12px; 
@@ -668,7 +669,7 @@ td button:active {
         <div class="bar3"></div>
     </div>
     <div class="menu-items" id="menuItems">
-        <button class="nav-button" onclick="showPage('halaman1')">HOME</button>
+        <button class="nav-button" id="home" onclick="showPage('halaman1')">HOME</button>
         <button class="nav-button" onclick="showPage('halaman2')">HOME</button>
         <button class="nav-button" onclick="location.reload()">REFRES</button>
     </div>
@@ -676,9 +677,6 @@ td button:active {
 <div id="halaman1" class="page active">
   <div class="wrapper">
     <div class="bagron"></div>
-    <br>
-    <br>
-    <br>
   <div class="menuikon">
     <button onclick="showPage('halaman2')">
         <img class="ikon" src="https://drive.google.com/thumbnail?id=1Egeblfc_6oIKOiA7FWzjXd0CODbbba86" alt="icon">
@@ -731,28 +729,84 @@ td button:active {
 </div>
 </div>
 <script>
- function showPage(pageId) {
-    // Menyembunyikan semua halaman
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-    });
+  function toggleMenu(x) {
+      x.classList.toggle("change");
+      var menuItems = document.getElementById('menuItems');
+      menuItems.classList.toggle('show');
+  }
 
-    // Menampilkan halaman sesuai dengan ID
-    const activePage = document.getElementById(pageId);
-    activePage.classList.add('active');
+  function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+      document.getElementById('menuItems').classList.remove('show');
+      document.querySelector('.container').classList.remove('change');
+  }
+ // Variabel untuk mengontrol apakah observer aktif
+let observerActive = true;
 
-    // Menyesuaikan overflow body
-    if (pageId === 'halaman1') {
-        document.body.style.overflow = 'hidden'; // Menghilangkan scroll
+// Fungsi untuk mengatur scroll pada body
+function toggleScroll(disable) {
+    if (disable) {
+        document.body.style.overflow = 'hidden'; // Matikan scroll
     } else {
-        document.body.style.overflow = 'auto'; // Mengaktifkan scroll
+        document.body.style.overflow = 'auto'; // Aktifkan scroll
     }
-
-    // Menyembunyikan menu setelah navigasi (opsional, sesuai kode Anda)
-    document.getElementById('menuItems').classList.remove('show');
-    document.querySelector('.container').classList.remove('change');
 }
 
+// Konfigurasi Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    if (!observerActive) return; // Abaikan jika observer tidak aktif
+
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Jika elemen terlihat di layar
+            if (entry.target.id === 'halaman1') {
+                toggleScroll(true); // Matikan scroll
+            }
+        } else {
+            // Aktifkan scroll kembali jika elemen tidak terlihat
+            if (entry.target.id === 'halaman1') {
+                toggleScroll(false);
+            }
+        }
+    });
+}, {
+    threshold: 0.5 // 50% elemen terlihat di layar untuk memicu
+});
+
+// Mendaftarkan elemen halaman1 ke observer
+const halaman1 = document.getElementById('halaman1');
+observer.observe(halaman1);
+
+// Fungsi untuk menonaktifkan observer
+function disableObserver() {
+    observerActive = false; // Nonaktifkan observer
+    toggleScroll(false); // Pastikan scroll diaktifkan kembali
+    console.log("Observer dinonaktifkan dan scroll diaktifkan kembali.");
+}
+
+// Fungsi untuk menghidupkan kembali observer dan mematikan scroll
+function enableObserver() {
+    observerActive = true; // Aktifkan kembali observer
+    toggleScroll(true); // Matikan scroll
+    console.log("Observer diaktifkan kembali dan scroll dimatikan.");
+}
+
+// Event listener untuk semua tombol
+const allButtons = document.querySelectorAll('button');
+
+// Iterasi semua tombol untuk mengatur logika
+allButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.id === 'home') {
+            enableObserver(); // Hidupkan observer dan matikan scroll lagi saat tombol dengan ID 'home' diklik
+        } else {
+            disableObserver(); // Nonaktifkan observer untuk tombol lainnya
+        }
+    });
+});
 </script>
 </div>
 <div id="halaman2" class="page">
