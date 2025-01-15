@@ -3,100 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keputusan LBM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dashboard</title>
+    <!-- Apple Touch Icons -->
+
+<!-- Web Manifest for Progressive Web App -->
+<link rel="manifest" href="ico/manifest.json">
+
+<!-- Microsoft-specific Meta Tags -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="ico/ms-icon-144x144.png">
+
+<!-- Theme color for browser UI -->
+<meta name="theme-color" content="#ffffff">
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background-color: #f0f0f0;
             margin: 0;
-            background-image: url('/GAMBAR/back.jpeg'); /* URL gambar latar belakang */
-            background-size: cover; /* Menyesuaikan ukuran gambar dengan layar */
-            background-position: center; /* Memusatkan gambar */
-            background-repeat: no-repeat; /* Mencegah pengulangan gambar */
         }
-        .container {
-            text-align: center;
-            display: grid;
-            gap: 10px;
-            height: 70%;
-            width: 70%;
-        }
-        .button {
-            padding: 5px;
-            font-size: 18px;
-            color: white;
-            background: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            width: auto;
+        .banner {
+            width: 320px;
             height: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Consistent gap between buttons */
+            margin-top: 5px;
+            max-width: 330px; /* Fixed width to prevent resizing */
+        }
+        .button-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            width: 90px; /* Fixed width for buttons */
+        }
+        .button-container button {
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 0px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
             justify-content: center;
             align-items: center;
+            width: 100px; /* Fixed width */
+            height: 90px; /* Fixed height */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
-        .button img {
-            max-width: 70%;
-            max-height: 70%;
+        .button-container button:hover {
+            background-color: #3080f7;
+            color: #fff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
         }
-        .button span {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
+        .button-container img {
+            width: 70%; /* Consistent image size */
+            height: auto;
+            transition: transform 0.3s ease;
         }
-        .button:hover {
-            background: #f7f7f7;
+        .button-container button:hover img {
             transform: scale(1.1);
         }
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .button-container p {
+            margin: 5px 0 0 0;
+            padding: 5px;
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            color: white;
+            font-size: 12px; /* Slightly smaller font size for better fit */
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Consistent width */
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.08);
         }
-        @media (min-width: 769px) {
-            .container {
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, auto);
-            }
+        .button-container p:hover {
+            background: linear-gradient(45deg, #256bbd, #4a90e2);
         }
-        .copyright {
-            font-size: 14px;
-            color: #777;
+        .logout-btn {
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            color: white;
+            width: 320px; /* Fixed width */
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 70PX;
+            margin-bottom: 0%;
+        }
+        .logout-btn:hover {
+            background: linear-gradient(45deg, #256bbd, #4a90e2);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .logout-btn:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <button class="button" onclick="window.location.href='https://example.com'">
-            <img src="/GAMBAR/DISKUSI.png" alt="Icon 1"><span>Diskusi</span>
-        </button>
-        <button class="button" onclick="window.location.href='https://example2.com'">
-            <img src="/GAMBAR/MEDIA.png" alt="Icon 2"><span>Informasi</span>
-        </button>
-        <button class="button" onclick="window.location.href='/data/rumusan.html'">
-            <img src="/GAMBAR/RUMUSAN.png" alt="Icon 3"><span>Rumusan</span>
-        </button>
-        <button class="button" onclick="window.location.href='/data/maktabah/library.html'">
-            <img src="/GAMBAR/MAKTABAH.png" alt="Icon 4"><span>Maktabah</span>
-        </button>
-        <button class="button" onclick="window.location.href='https://example5.com'">
-            <img src="/GAMBAR/administrator.png" alt="Icon 5"><span>Admin</span>
-        </button>
-        <button class="button" onclick="window.location.href='https://example6.com'">
-            <img src="/GAMBAR/SOAL.png" alt="Icon 6"><span>Asilah</span>
-        </button>
+    <div class="banner">
+        <img src="GAMBAR/BANNER.jpg" alt="Banner"> <!-- Ganti dengan path gambar banner Anda -->
     </div>
-        <p class="copyright">
-            &copy; 2025 KFF. All rights reserved.
-        </p>
+    <div class="button-container">
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/PROGRAM.html'"><img src="GAMBAR/PROGRAM.png" alt="Button 1"></button>
+            <p>Program</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/DESAIN.html'"><img src="GAMBAR/DESAIN.png" alt="Button 2"></button>
+            <p>Desain</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/DOKUMEN.html'"><img src="GAMBAR/DOKUMENTASI.png" alt="Button 3"></button>
+            <p>Dokumen</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/MAKTABAH/PERPUSTAKAAN.html'"><img src="GAMBAR/PERPUSTAKAAN.png" alt="Button 4"></button>
+            <p>Maktabah</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='https://bahtsulmasail.github.io/'"><img src="GAMBAR/SANTRI.png" alt="Button 5"></button>
+            <p>Rumusan</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/perpustakaan.html'"><img src="GAMBAR/buku.png" alt="Button 6"></button>
+            <p>Perpustakaan</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/IBAROH.html'"><img src="GAMBAR/IBAROH.png" alt="Button 7"></button>
+            <p>Ibaroh</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/KAJIAN.html'"><img src="GAMBAR/KAJIAN.png" alt="Button 8"></button>
+            <p>Kajian</p>
+        </div>
+        <div class="button-item">
+            <button onclick="window.location.href='DATA/catatan.html'"><img src="GAMBAR/CATATAN.png" alt="Button 9"></button>
+            <p>Catatan</p>
+        </div>
+    </div>
 </body>
 </html>
