@@ -314,7 +314,7 @@ color:#ff1a1a;
     font-weight: bold;
     display: flex;
     position: relative;
-    margin-top: 45px;
+    margin-top: 20px;
     margin-bottom: 2px;
     color: #fff;
     background: linear-gradient(45deg, #3080f7, #56ccf2);
@@ -331,7 +331,7 @@ color:#ff1a1a;
     justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
     align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
     text-decoration: none;
-    width: 330px; /* Memenuhi seluruh lebar kontainer */
+    width: 320px; /* Memenuhi seluruh lebar kontainer */
     box-sizing: border-box; /* Memastikan padding dihitung dalam lebar total */
 
 
@@ -347,7 +347,7 @@ color:#ff1a1a;
 }
 .konten1 {
   box-sizing: border-box;
-  width: 330px;
+  width: 320px;
   font-weight: bold;
   display: flex;
   color: #fff;
@@ -378,6 +378,32 @@ color:#ff1a1a;
 .konten1 .fas {
   margin-left: 10px; /* Jarak antara teks dan ikon */
 }
+.slider-container {
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 320px;
+            height: 70px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 320px;
+            margin: 0 0px;
+        }
+
+        .slide img {
+            width: 320px;
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -422,6 +448,33 @@ color:#ff1a1a;
             <p>Asilah</p>
         </div>
     </div>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+          <div class="slide">
+              <img src="/GAMBAR/kkf1.jpg" alt="Image 1">
+          </div>
+          <div class="slide">
+              <img src="/GAMBAR/kkf2.jpg" alt="Image 2">
+          </div>
+      </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    let currentIndex = 0;
+
+    function autoSlide() {
+        // Toggle antara gambar pertama (index 0) dan kedua (index 1)
+        currentIndex = currentIndex === 0 ? 1 : 0;
+
+        // Geser slider ke posisi yang sesuai
+        slider.style.transform = `translateX(${-currentIndex * 330}px)`;
+    }
+
+    // Ganti gambar setiap 3 detik
+    setInterval(autoSlide, 3000);
+</script>
+
     <a href="PROGRAM/KONTEN1.html" class="konten">
         <span>Rumusan terbaru</span>
         <i class="fas fa-chevron-right"></i>
