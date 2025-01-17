@@ -114,13 +114,13 @@ async function login(event) {
         const text = await response.text();
 
         // Proses respon
-        if (text === 'SUCCESS') {
-            alert('Login berhasil!');
-            // Arahkan pengguna ke halaman berikutnya
-            window.location.href = 'admin.html';
-        } else {
-            alert('Login gagal! Email atau password salah.');
-        }
+    if (text === 'SUCCESS') {
+        // Langsung arahkan pengguna ke halaman berikutnya
+        window.location.href = 'admin.html';
+    } else {
+        alert('Login gagal! Email atau password salah.');
+    }
+
     } catch (error) {
         console.error('Error:', error);
         alert('Terjadi kesalahan. Silakan coba lagi.');
