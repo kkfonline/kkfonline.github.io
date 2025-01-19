@@ -19,7 +19,7 @@
 <!-- Theme color for browser UI -->
 <meta name="theme-color" content="#ffffff">
 
-    <style>
+<style>
         body {
             font-family: Arial, sans-serif;
             display:grid;
@@ -104,283 +104,281 @@
         .button-container p:hover {
             background: linear-gradient(45deg, #256bbd, #4a90e2);
         }
-        
-
         #dataTable1,
-#dataTable2,
-#dataTable0 {
-  width: 100%;
-  max-width: 100%;
-}
-#dataTable1 th,
-#dataTable1 td,
-#dataTable2 th,
-#dataTable2 td,
-#dataTable0 th,
-#dataTable0 td {
-  display: block;
-  padding: 2px;
-  font-size: 16px;
-  margin-top: 0px;
-  margin-bottom: 3px;
-  color: black;
-}
-.table-image {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-  transition: transform 0.3s, box-shadow 0.3s; /* Transisi halus */
-  width: 100%; /* Lebar gambar disesuaikan dengan kolom */
-  height: 100%; /* Tinggi otomatis agar proporsional */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+        #dataTable2,
+        #dataTable0 {
+          width: 100%;
+          max-width: 100%;
+        }
+        #dataTable1 th,
+        #dataTable1 td,
+        #dataTable2 th,
+        #dataTable2 td,
+        #dataTable0 th,
+        #dataTable0 td {
+          display: block;
+          padding: 2px;
+          font-size: 16px;
+          margin-top: 0px;
+          margin-bottom: 3px;
+          color: black;
+        }
+        .table-image {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+          transition: transform 0.3s, box-shadow 0.3s; /* Transisi halus */
+          width: 100%; /* Lebar gambar disesuaikan dengan kolom */
+          height: 100%; /* Tinggi otomatis agar proporsional */
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
 
-#dataTable1 th:nth-child(1),
-#dataTable1 td:nth-child(1),
-#dataTable0 th:nth-child(1),
-#dataTable0 td:nth-child(1) {
-  color:#ffffff; /* Membuat teks tidak terlihat */
-  text-shadow: none;  /* Menghapus bayangan teks jika ada */
-  width: 70px; /* 2 units lebar */
-  height: 70px; /* 3 units tinggi */
-  margin-top: 0px;
-  font-size: 17px;
+        #dataTable1 th:nth-child(1),
+        #dataTable1 td:nth-child(1),
+        #dataTable0 th:nth-child(1),
+        #dataTable0 td:nth-child(1) {
+          color:#ffffff; /* Membuat teks tidak terlihat */
+          text-shadow: none;  /* Menghapus bayangan teks jika ada */
+          width: 70px; /* 2 units lebar */
+          height: 70px; /* 3 units tinggi */
+          margin-top: 0px;
+          font-size: 17px;
 
-}
-#dataTable2 th:nth-child(1),
-#dataTable2 td:nth-child(1){
-  color:#ffffff; /* Membuat teks tidak terlihat */
-  text-shadow: none;  /* Menghapus bayangan teks jika ada */
-  width: 128px; /* 2 units lebar */
-  height: 72px; /* 3 units tinggi */
-  margin-top: 0px;
-  font-size: 17px;
-}
-#dataTable1 th:nth-child(2),
-#dataTable1 td:nth-child(2),
-#dataTable0 th:nth-child(2),
-#dataTable0 td:nth-child(2) {
-    margin-top: -77px;
-    margin-left: 80px;
-    font-size: 12px; /* Ukuran font */
-    width: auto; /* Lebar otomatis */
-    height: auto; /* Tinggi otomatis */
-    color: #ffffff; /* Warna teks */
-    padding: 2px; /* Padding untuk tampilan yang lebih baik */
-    background: linear-gradient(45deg, #3080f7, #56ccf2);
-    border-radius: 2px; /* Sudut melengkung */
-    width:fit-content; /* 2 units lebar */  
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-}
-#dataTable2 th:nth-child(2),
-#dataTable2 td:nth-child(2) {
-    margin-top: -77px;
-    margin-left: 140px;
-    font-size: 12px; /* Ukuran font */
-    width: auto; 
-    height: auto; /* Tinggi otomatis */
-    color: #ffffff; /* Warna teks */
-    padding: 2px; /* Padding untuk tampilan yang lebih baik */
-    background: linear-gradient(45deg, #3080f7, #56ccf2);
-    border-radius: 2px; /* Sudut melengkung */
-    width:fit-content; /* 2 units lebar */  
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-}
+        }
+        #dataTable2 th:nth-child(1),
+        #dataTable2 td:nth-child(1){
+          color:#ffffff; /* Membuat teks tidak terlihat */
+          text-shadow: none;  /* Menghapus bayangan teks jika ada */
+          width: 128px; /* 2 units lebar */
+          height: 72px; /* 3 units tinggi */
+          margin-top: 0px;
+          font-size: 17px;
+        }
+        #dataTable1 th:nth-child(2),
+        #dataTable1 td:nth-child(2),
+        #dataTable0 th:nth-child(2),
+        #dataTable0 td:nth-child(2) {
+            margin-top: -77px;
+            margin-left: 80px;
+            font-size: 12px; /* Ukuran font */
+            width: auto; /* Lebar otomatis */
+            height: auto; /* Tinggi otomatis */
+            color: #ffffff; /* Warna teks */
+            padding: 2px; /* Padding untuk tampilan yang lebih baik */
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            border-radius: 2px; /* Sudut melengkung */
+            width:fit-content; /* 2 units lebar */  
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+        }
+        #dataTable2 th:nth-child(2),
+        #dataTable2 td:nth-child(2) {
+            margin-top: -77px;
+            margin-left: 140px;
+            font-size: 12px; /* Ukuran font */
+            width: auto; 
+            height: auto; /* Tinggi otomatis */
+            color: #ffffff; /* Warna teks */
+            padding: 2px; /* Padding untuk tampilan yang lebih baik */
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            border-radius: 2px; /* Sudut melengkung */
+            width:fit-content; /* 2 units lebar */  
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+        }
 
-#dataTable1 th:nth-child(3),
-#dataTable1 td:nth-child(3),
-#dataTable0 th:nth-child(3),
-#dataTable0 td:nth-child(3) {
-    margin-top: -5px;
-    margin-left: 78px;
-    font-size: 10px; /* Ukuran font */
-    width: auto; /* Lebar otomatis */
-    height: auto; /* Tinggi otomatis */
-    color: #000000; /* Warna teks */
-    font-family: "Asap", sans-serif;
+        #dataTable1 th:nth-child(3),
+        #dataTable1 td:nth-child(3),
+        #dataTable0 th:nth-child(3),
+        #dataTable0 td:nth-child(3) {
+            margin-top: -5px;
+            margin-left: 78px;
+            font-size: 10px; /* Ukuran font */
+            width: auto; /* Lebar otomatis */
+            height: auto; /* Tinggi otomatis */
+            color: #000000; /* Warna teks */
+            font-family: "Asap", sans-serif;
 
-}
-#dataTable2 th:nth-child(3),
-#dataTable2 td:nth-child(3) {
-    margin-top: -5px;
-    margin-left: 140px;
-    font-size: 10px; /* Ukuran font */
-    width: auto; /* Lebar otomatis */
-    height: auto; /* Tinggi otomatis */
-    color: #000000; /* Warna teks */
-    font-family: "Asap", sans-serif;
-}
+        }
+        #dataTable2 th:nth-child(3),
+        #dataTable2 td:nth-child(3) {
+            margin-top: -5px;
+            margin-left: 140px;
+            font-size: 10px; /* Ukuran font */
+            width: auto; /* Lebar otomatis */
+            height: auto; /* Tinggi otomatis */
+            color: #000000; /* Warna teks */
+            font-family: "Asap", sans-serif;
+        }
 
-#dataTable1 th:nth-child(4),
-#dataTable1 td:nth-child(4),
-#dataTable0 th:nth-child(4),
-#dataTable0 td:nth-child(4) {
-    margin-left: 78px;
-    margin-top: -5px;
-    font-size: 10px; /* Ukuran font */
-    color:#919191; 
-    font-family: "Asap", sans-serif;
+        #dataTable1 th:nth-child(4),
+        #dataTable1 td:nth-child(4),
+        #dataTable0 th:nth-child(4),
+        #dataTable0 td:nth-child(4) {
+            margin-left: 78px;
+            margin-top: -5px;
+            font-size: 10px; /* Ukuran font */
+            color:#919191; 
+            font-family: "Asap", sans-serif;
 
-}
-#dataTable2 th:nth-child(4),
-#dataTable2 td:nth-child(4) {
-    margin-left: 140px;
-    margin-top: -5px;
-    font-size: 10px; /* Ukuran font */
-    color:#919191; 
-    font-family: "Asap", sans-serif;
+        }
+        #dataTable2 th:nth-child(4),
+        #dataTable2 td:nth-child(4) {
+            margin-left: 140px;
+            margin-top: -5px;
+            font-size: 10px; /* Ukuran font */
+            color:#919191; 
+            font-family: "Asap", sans-serif;
 
-}
+        }
 
-#dataTable1 th:nth-child(5),
-#dataTable1 td:nth-child(5),
-#dataTable2 th:nth-child(5),
-#dataTable2 td:nth-child(5),
-#dataTable0 th:nth-child(5),
-#dataTable0 td:nth-child(5) {
-  display: none;
-}
+        #dataTable1 th:nth-child(5),
+        #dataTable1 td:nth-child(5),
+        #dataTable2 th:nth-child(5),
+        #dataTable2 td:nth-child(5),
+        #dataTable0 th:nth-child(5),
+        #dataTable0 td:nth-child(5) {
+          display: none;
+        }
 
-#dataTable0 th:nth-child(6),
-#dataTable0 td:nth-child(6) {
-    display: none;
-      
-  }
-.hidden-text div {
-  display: none;
-}
-
-
-#dataTable1 tr:last-child td,
-#dataTable2 tr:last-child td,
-#dataTable0 tr:last-child td {
-  display: none;
-}
-
-.TABEL {
-  margin: 0px;
-  border-collapse: collapse;
-}
-#dataTable1 td.rtl,
-#dataTable2 td.rtl,
-#dataTable0 td.rtl {
-  direction: rtl;
-}
-#dataTable1 td.indonesia,
-#dataTable2 td.indonesia,
-#dataTable0 td.indonesia {
-  direction: ltr;
-}
-.underline-text {
-color:#ff1a1a;
-}
-
-.center-text {
-    display:block;
-    margin-bottom: -20px;
-    text-align: center;
-    }
-.quote-text {
-    display: block;
-    text-align: left;
-    margin-bottom: -20px;
-    font-family: "Lato", sans-serif;
-}
-.bold {
-  font-weight: bold;
-}
-.table-row {
-  background-color: rgb(255, 255, 255);
-  padding: 5px; 
-  height: auto;
-  width: 320px;
-  min-height: 80px;
-  margin-bottom: 2px; 
-  border-radius: 3px; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#dataTable1 tbody tr:last-child,
-#dataTable2 tbody tr:last-child,
-#dataTable0 tbody tr:last-child {
-  display: none;
-}
-
-.konten {
-    font-weight: bold;
-    display: flex;
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 2px;
-    color: #fff;
-    background: linear-gradient(45deg, #3080f7, #56ccf2);
-    border-left: 5px solid #014098;
-    padding: 5px 8px;
-    border-radius: 3px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    font-size: 20px;
-    z-index: 1000;
-    justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
-    align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
-    text-decoration: none;
-    width: 320px; /* Memenuhi seluruh lebar kontainer */
-    box-sizing: border-box; /* Memastikan padding dihitung dalam lebar total */
+        #dataTable0 th:nth-child(6),
+        #dataTable0 td:nth-child(6) {
+            display: none;
+              
+          }
+        .hidden-text div {
+          display: none;
+        }
 
 
-}
-.konten .fa-chevron-right {
-  font-size: 12px;
-}
-.konten span {
-  flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
-}
-.konten .fas {
-  margin-left: 10px; /* Jarak antara teks dan ikon */
-}
-.konten1 {
-  box-sizing: border-box;
-  width: 320px;
-  font-weight: bold;
-  display: flex;
-  color: #fff;
-  position: relative;
-  margin-bottom: 2px;
-  background: linear-gradient(45deg, #3080f7, #56ccf2);
-  border-left: 5px solid #014098;
-  padding: 5px 8px;
-  border-radius: 3px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-  font-size: 20px;
-  z-index: 1000;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  margin-top: 10px;
-}
-.konten1 .fa-chevron-right {
-  font-size: 12px;
-}
-.konten1 span {
-  flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
-}
-.konten1 .fas {
-  margin-left: 10px; /* Jarak antara teks dan ikon */
-}
-.slider-container {
+        #dataTable1 tr:last-child td,
+        #dataTable2 tr:last-child td,
+        #dataTable0 tr:last-child td {
+          display: none;
+        }
+
+        .TABEL {
+          margin: 0px;
+          border-collapse: collapse;
+        }
+        #dataTable1 td.rtl,
+        #dataTable2 td.rtl,
+        #dataTable0 td.rtl {
+          direction: rtl;
+        }
+        #dataTable1 td.indonesia,
+        #dataTable2 td.indonesia,
+        #dataTable0 td.indonesia {
+          direction: ltr;
+        }
+        .underline-text {
+        color:#ff1a1a;
+        }
+
+        .center-text {
+            display:block;
+            margin-bottom: -20px;
+            text-align: center;
+            }
+        .quote-text {
+            display: block;
+            text-align: left;
+            margin-bottom: -20px;
+            font-family: "Lato", sans-serif;
+        }
+        .bold {
+          font-weight: bold;
+        }
+        .table-row {
+          background-color: rgb(255, 255, 255);
+          padding: 5px; 
+          height: auto;
+          width: 320px;
+          min-height: 80px;
+          margin-bottom: 2px; 
+          border-radius: 3px; 
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #dataTable1 tbody tr:last-child,
+        #dataTable2 tbody tr:last-child,
+        #dataTable0 tbody tr:last-child {
+          display: none;
+        }
+
+        .konten {
+            font-weight: bold;
+            display: flex;
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 2px;
+            color: #fff;
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            border-left: 5px solid #014098;
+            padding: 5px 8px;
+            border-radius: 3px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: "Josefin Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+            font-size: 20px;
+            z-index: 1000;
+            justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
+            align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
+            text-decoration: none;
+            width: 320px; /* Memenuhi seluruh lebar kontainer */
+            box-sizing: border-box; /* Memastikan padding dihitung dalam lebar total */
+
+
+        }
+        .konten .fa-chevron-right {
+          font-size: 12px;
+        }
+        .konten span {
+          flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
+        }
+        .konten .fas {
+          margin-left: 10px; /* Jarak antara teks dan ikon */
+        }
+        .konten1 {
+          box-sizing: border-box;
+          width: 320px;
+          font-weight: bold;
+          display: flex;
+          color: #fff;
+          position: relative;
+          margin-bottom: 2px;
+          background: linear-gradient(45deg, #3080f7, #56ccf2);
+          border-left: 5px solid #014098;
+          padding: 5px 8px;
+          border-radius: 3px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          font-family: "Josefin Sans", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: weight;
+          font-style: normal;
+          font-size: 20px;
+          z-index: 1000;
+          justify-content: space-between;
+          align-items: center;
+          text-decoration: none;
+          margin-top: 10px;
+        }
+        .konten1 .fa-chevron-right {
+          font-size: 12px;
+        }
+        .konten1 span {
+          flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
+        }
+        .konten1 .fas {
+          margin-left: 10px; /* Jarak antara teks dan ikon */
+        }
+        .slider-container {
             overflow: hidden;
             background: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
