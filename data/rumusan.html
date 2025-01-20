@@ -1215,22 +1215,6 @@ function toggleRowVisibility(event) {
 
 </script>
 <script>
-  function toggleMenu(x) {
-      x.classList.toggle("change");
-      var menuItems = document.getElementById('menuItems');
-      menuItems.classList.toggle('show');
-  }
-
-  function showPage(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-          page.classList.remove('active');
-      });
-      document.getElementById(pageId).classList.add('active');
-      document.getElementById('menuItems').classList.remove('show');
-      document.querySelector('.container').classList.remove('change');
-  }
-</script>
-<script>
   function isArabic(text) {
 const arabicRegex = /[\u0600-\u06FF]/;
 return arabicRegex.test(text);
