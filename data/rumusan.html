@@ -746,56 +746,6 @@ td button:active {
       document.getElementById('menuItems').classList.remove('show');
       document.querySelector('.container').classList.remove('change');
   }
- // Variabel untuk mengontrol apakah observer aktif
-let observerActive = true;
-
-// Fungsi untuk mengatur scroll pada body
-function toggleScroll(disable) {
-    if (disable) {
-        document.body.style.overflow = 'hidden'; // Matikan scroll
-    } else {
-        document.body.style.overflow = 'auto'; // Aktifkan scroll
-    }
-}
-
-// Konfigurasi Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-    if (!observerActive) return; // Abaikan jika observer tidak aktif
-
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Jika elemen terlihat di layar
-            if (entry.target.id === 'halaman1') {
-                toggleScroll(true); // Matikan scroll
-            }
-        } else {
-            // Aktifkan scroll kembali jika elemen tidak terlihat
-            if (entry.target.id === 'halaman1') {
-                toggleScroll(false);
-            }
-        }
-    });
-}, {
-    threshold: 0.5 // 50% elemen terlihat di layar untuk memicu
-});
-
-// Mendaftarkan elemen halaman1 ke observer
-const halaman1 = document.getElementById('halaman1');
-observer.observe(halaman1);
-
-// Fungsi untuk menonaktifkan observer
-function disableObserver() {
-    observerActive = false; // Nonaktifkan observer
-    toggleScroll(false); // Pastikan scroll diaktifkan kembali
-    console.log("Observer dinonaktifkan dan scroll diaktifkan kembali.");
-}
-
-// Fungsi untuk menghidupkan kembali observer dan mematikan scroll
-function enableObserver() {
-    observerActive = true; // Aktifkan kembali observer
-    toggleScroll(true); // Matikan scroll
-    console.log("Observer diaktifkan kembali dan scroll dimatikan.");
-}
 
 // Event listener untuk semua tombol
 const allButtons = document.querySelectorAll('button');
