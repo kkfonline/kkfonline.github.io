@@ -8,17 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Apple Touch Icons -->
-
     <!-- Web Manifest for Progressive Web App -->
     <link rel="manifest" href="ico/manifest.json">
-
     <!-- Microsoft-specific Meta Tags -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="ico/ms-icon-144x144.png">
-
     <!-- Theme color for browser UI -->
     <meta name="theme-color" content="#ffffff">
-
 <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,27 +28,47 @@
             background-size: cover; /* Menyesuaikan ukuran gambar dengan layar */
             background-position: center; /* Memusatkan gambar */
             background-repeat:repeat-y; /* Mencegah pengulangan gambar */
+
         }
-        .banner {
-            width: 95%;
-            max-width: 350px;
-            height: auto;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.container {
+    display: flex; /* Atur sebagai flex container */
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    height: 100vh; /* Tinggi penuh layar */
+    margin: 0; /* Hilangkan margin default */
+    background-color: #f0f0f0; /* Warna latar */
+}
+
+.page-dashboard {
+    display: flex; /* Tambahkan display flex */
+    justify-content: center; /* Pusatkan konten dalam dashboard */
+    align-items: center; /* Pusatkan vertikal */
+    width: 100%; /* Sesuaikan lebar */
+}
+
+.banner {
+    width: auto;
+    max-width: 350px; /* Batasi ukuran maksimal banner */
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto; /* Pusatkan elemen */
+    margin-top: 200px;
+}
+
+.banner img {
+    width: 100%; /* Pastikan gambar mengikuti lebar kontainer */
+    height: auto; /* Jaga rasio aspek gambar */
+    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+    border-radius: inherit; /* Ikuti radius banner */
+}
         .button-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 35px; /* Consistent gap between buttons */
             margin-top: 5px;
-            max-width: 95%; /* Fixed width to prevent resizing */
+            max-width: 100%; /* Fixed width to prevent resizing */
         }
         .button-item {
             display: flex;
@@ -104,309 +120,49 @@
         .button-container p:hover {
             background: linear-gradient(45deg, #256bbd, #4a90e2);
         }
-        #dataTable1,
-        #dataTable2,
-        #dataTable0 {
-          width: 100%;
-          max-width: 100%;
-        }
-        #dataTable1 th,
-        #dataTable1 td,
-        #dataTable2 th,
-        #dataTable2 td,
-        #dataTable0 th,
-        #dataTable0 td {
-          display: block;
-          padding: 2px;
-          font-size: 16px;
-          margin-top: 0px;
-          margin-bottom: 3px;
-          color: black;
-        }
-        .table-image {
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-          transition: transform 0.3s, box-shadow 0.3s; /* Transisi halus */
-          width: 100%; /* Lebar gambar disesuaikan dengan kolom */
-          height: 100%; /* Tinggi otomatis agar proporsional */
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        #dataTable1 th:nth-child(1),
-        #dataTable1 td:nth-child(1),
-        #dataTable0 th:nth-child(1),
-        #dataTable0 td:nth-child(1) {
-          color:#ffffff; /* Membuat teks tidak terlihat */
-          text-shadow: none;  /* Menghapus bayangan teks jika ada */
-          width: 70px; /* 2 units lebar */
-          height: 70px; /* 3 units tinggi */
-          margin-top: 0px;
-          font-size: 17px;
-
-        }
-        #dataTable2 th:nth-child(1),
-        #dataTable2 td:nth-child(1){
-          color:#ffffff; /* Membuat teks tidak terlihat */
-          text-shadow: none;  /* Menghapus bayangan teks jika ada */
-          width: 128px; /* 2 units lebar */
-          height: 72px; /* 3 units tinggi */
-          margin-top: 0px;
-          font-size: 17px;
-        }
-        #dataTable1 th:nth-child(2),
-        #dataTable1 td:nth-child(2),
-        #dataTable0 th:nth-child(2),
-        #dataTable0 td:nth-child(2) {
-            margin-top: -77px;
-            margin-left: 80px;
-            font-size: 12px; /* Ukuran font */
-            width: auto; /* Lebar otomatis */
-            height: auto; /* Tinggi otomatis */
-            color: #ffffff; /* Warna teks */
-            padding: 2px; /* Padding untuk tampilan yang lebih baik */
-            background: linear-gradient(45deg, #3080f7, #56ccf2);
-            border-radius: 2px; /* Sudut melengkung */
-            width:fit-content; /* 2 units lebar */  
-            font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: weight;
-            font-style: normal;
-        }
-        #dataTable2 th:nth-child(2),
-        #dataTable2 td:nth-child(2) {
-            margin-top: -77px;
-            margin-left: 140px;
-            font-size: 12px; /* Ukuran font */
-            width: auto; 
-            height: auto; /* Tinggi otomatis */
-            color: #ffffff; /* Warna teks */
-            padding: 2px; /* Padding untuk tampilan yang lebih baik */
-            background: linear-gradient(45deg, #3080f7, #56ccf2);
-            border-radius: 2px; /* Sudut melengkung */
-            width:fit-content; /* 2 units lebar */  
-            font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: weight;
-            font-style: normal;
+        .nav-bar button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        #dataTable1 th:nth-child(3),
-        #dataTable1 td:nth-child(3),
-        #dataTable0 th:nth-child(3),
-        #dataTable0 td:nth-child(3) {
-            margin-top: -5px;
-            margin-left: 78px;
-            font-size: 10px; /* Ukuran font */
-            width: auto; /* Lebar otomatis */
-            height: auto; /* Tinggi otomatis */
-            color: #000000; /* Warna teks */
-            font-family: "Asap", sans-serif;
-
-        }
-        #dataTable2 th:nth-child(3),
-        #dataTable2 td:nth-child(3) {
-            margin-top: -5px;
-            margin-left: 140px;
-            font-size: 10px; /* Ukuran font */
-            width: auto; /* Lebar otomatis */
-            height: auto; /* Tinggi otomatis */
-            color: #000000; /* Warna teks */
-            font-family: "Asap", sans-serif;
+        .nav-bar button:hover {
+            color: #3080f7;
         }
 
-        #dataTable1 th:nth-child(4),
-        #dataTable1 td:nth-child(4),
-        #dataTable0 th:nth-child(4),
-        #dataTable0 td:nth-child(4) {
-            margin-left: 78px;
-            margin-top: -5px;
-            font-size: 10px; /* Ukuran font */
-            color:#919191; 
-            font-family: "Asap", sans-serif;
-
-        }
-        #dataTable2 th:nth-child(4),
-        #dataTable2 td:nth-child(4) {
-            margin-left: 140px;
-            margin-top: -5px;
-            font-size: 10px; /* Ukuran font */
-            color:#919191; 
-            font-family: "Asap", sans-serif;
-
-        }
-
-        #dataTable1 th:nth-child(5),
-        #dataTable1 td:nth-child(5),
-        #dataTable2 th:nth-child(5),
-        #dataTable2 td:nth-child(5),
-        #dataTable0 th:nth-child(5),
-        #dataTable0 td:nth-child(5) {
-          display: none;
-        }
-
-        #dataTable0 th:nth-child(6),
-        #dataTable0 td:nth-child(6) {
-            display: none;
-              
-          }
-        .hidden-text div {
-          display: none;
-        }
-
-
-        #dataTable1 tr:last-child td,
-        #dataTable2 tr:last-child td,
-        #dataTable0 tr:last-child td {
-          display: none;
-        }
-
-        .TABEL {
-          margin: 0px;
-          border-collapse: collapse;
-        }
-        #dataTable1 td.rtl,
-        #dataTable2 td.rtl,
-        #dataTable0 td.rtl {
-          direction: rtl;
-        }
-        #dataTable1 td.indonesia,
-        #dataTable2 td.indonesia,
-        #dataTable0 td.indonesia {
-          direction: ltr;
-        }
-        .underline-text {
-        color:#ff1a1a;
-        }
-
-        .center-text {
-            display:block;
-            margin-bottom: -20px;
-            text-align: center;
-            }
-        .quote-text {
-            display: block;
-            text-align: left;
-            margin-bottom: -20px;
-            font-family: "Lato", sans-serif;
-        }
-        .bold {
-          font-weight: bold;
-        }
-        .table-row {
-          background-color: rgb(255, 255, 255);
-          padding: 5px; 
-          height: auto;
-          width: 320px;
-          min-height: 80px;
-          margin-bottom: 2px; 
-          border-radius: 3px; 
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #dataTable1 tbody tr:last-child,
-        #dataTable2 tbody tr:last-child,
-        #dataTable0 tbody tr:last-child {
-          display: none;
-        }
-
-        .konten {
+        .nav-bar button.active {
+            color: #3080f7;
             font-weight: bold;
-            display: flex;
-            position: relative;
-            margin-top: 20px;
-            margin-bottom: 2px;
-            color: #fff;
-            background: linear-gradient(45deg, #3080f7, #56ccf2);
-            border-left: 5px solid #014098;
-            padding: 5px 8px;
-            border-radius: 3px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-family: "Josefin Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: weight;
-            font-style: normal;
-            font-size: 20px;
-            z-index: 1000;
-            justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
-            align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
-            text-decoration: none;
-            width: 320px; /* Memenuhi seluruh lebar kontainer */
-            box-sizing: border-box; /* Memastikan padding dihitung dalam lebar total */
-
-
-        }
-        .konten .fa-chevron-right {
-          font-size: 12px;
-        }
-        .konten span {
-          flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
-        }
-        .konten .fas {
-          margin-left: 10px; /* Jarak antara teks dan ikon */
-        }
-        .konten1 {
-          box-sizing: border-box;
-          width: 320px;
-          font-weight: bold;
-          display: flex;
-          color: #fff;
-          position: relative;
-          margin-bottom: 2px;
-          background: linear-gradient(45deg, #3080f7, #56ccf2);
-          border-left: 5px solid #014098;
-          padding: 5px 8px;
-          border-radius: 3px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          font-family: "Josefin Sans", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: weight;
-          font-style: normal;
-          font-size: 20px;
-          z-index: 1000;
-          justify-content: space-between;
-          align-items: center;
-          text-decoration: none;
-          margin-top: 10px;
-        }
-        .konten1 .fa-chevron-right {
-          font-size: 12px;
-        }
-        .konten1 span {
-          flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
-        }
-        .konten1 .fas {
-          margin-left: 10px; /* Jarak antara teks dan ikon */
-        }
-        .slider-container {
-            overflow: hidden;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            width: 320px;
-            height: 70px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 320px;
-            margin: 0 0px;
-        }
-
-        .slide img {
-            width: 320px;
-            height: auto;
-            border-radius: 8px;
         }
     </style>
 </head>
 <body>
+  <div class="container" id="container">
+    <!-- Halaman Beranda -->
+  <div class="page home">
+  </div>
+
+  <!-- Halaman Pustaka -->
+  <div class="page library">
+  </div>
+
+  <!-- Halaman Dashboard -->
+    <div class="page dashboard">
     <div class="banner">
         <img src="GAMBAR/kkf.jpg" alt="Banner"> <!-- Ganti dengan path gambar banner Anda -->
     </div>
@@ -448,6 +204,28 @@
             <p>Ajukan soal</p>
         </div>
     </div>
-    
+    <br><br><br><br><br><br><br>
+  </div>
+  </div>
+    <!-- Tombol Navigasi -->
+    <div class="nav-bar">
+      <button id="btn-home" class="active" onclick="navigateTo(0)"><i class="fas fa-home"></i> Beranda</button>
+      <button id="btn-library" onclick="navigateTo(1)"><i class="fas fa-book"></i> Pustaka</button>
+      <button id="btn-dashboard" onclick="navigateTo(2)"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+  </div>
+
+  <script>
+      const container = document.getElementById('container');
+      const buttons = document.querySelectorAll('.nav-bar button');
+
+      function navigateTo(index) {
+          // Pindahkan container ke halaman yang diinginkan
+          container.style.transform = `translateX(-${index * 100}%)`;
+
+          // Atur tombol navigasi aktif
+          buttons.forEach(button => button.classList.remove('active'));
+          buttons[index].classList.add('active');
+      }
+  </script>
 </body>
 </html>
