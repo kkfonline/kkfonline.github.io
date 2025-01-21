@@ -16,65 +16,73 @@
     <!-- Theme color for browser UI -->
     <meta name="theme-color" content="#ffffff">
 <style>
-        body {
-            font-family: Arial, sans-serif;
-            display:grid;
-            place-items: center; /* Menyelaraskan konten secara horizontal dan vertikal */
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            background-image: url('/GAMBAR/background.jpg'); /* URL gambar latar belakang */
-            background-size: cover; /* Menyesuaikan ukuran gambar dengan layar */
-            background-position: center; /* Memusatkan gambar */
-            background-repeat:repeat-y; /* Mencegah pengulangan gambar */
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Susun elemen secara vertikal */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    justify-content: flex-start; /* Tempatkan elemen di bagian atas */
+    background-image: url('/GAMBAR/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    height: 100vh;
+}
+@media (max-width: 768px) {
+    .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar kecil */
+    }
+}
 
-        }
+@media (max-width: 480px) {
+    .button-container {
+        grid-template-columns: 1fr; /* 1 kolom di layar sangat kecil */
+    }
+}
+
 .container {
-    display: flex; /* Atur sebagai flex container */
-    justify-content: center; /* Pusatkan secara horizontal */
-    align-items: center; /* Pusatkan secara vertikal */
-    height: 100vh; /* Tinggi penuh layar */
-    margin: 0; /* Hilangkan margin default */
+    display: block; /* Atur sebagai flex container */
 }
 
-.page-dashboard {
-    display: flex; /* Tambahkan display flex */
-    justify-content: center; /* Pusatkan konten dalam dashboard */
-    align-items: center; /* Pusatkan vertikal */
-    width: 100%; /* Sesuaikan lebar */
+.page.active {
+    display: block; /* Atur sebagai flex container */
+    }
+    .page.dashboard {
+    display: flex; /* Aktifkan flexbox */
+    flex-direction: column; /* Atur elemen dalam kolom (vertikal) */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    justify-content: center; /* Pusatkan elemen secara vertikal */
+    min-height: 100vh; /* Pastikan elemen memenuhi tinggi layar */
+    padding: 20px; /* Tambahkan sedikit ruang di sekitar elemen */
+    box-sizing: border-box; /* Termasuk padding dalam ukuran elemen */
 }
-
 .banner {
-    width: auto;
-    max-width: 350px; /* Batasi ukuran maksimal banner */
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto; /* Pusatkan elemen */
+    width: 100%; /* Lebar penuh */
+    max-width: 350px; /* Batas maksimum lebar */
+    margin-bottom: 20px; /* Jarak dengan tombol di bawahnya */
 }
 
 .banner img {
-    width: 100%; /* Pastikan gambar mengikuti lebar kontainer */
-    height: auto; /* Jaga rasio aspek gambar */
-    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
-    border-radius: inherit; /* Ikuti radius banner */
+    width: 100%; /* Gambar mengikuti lebar banner */
+    height: auto; /* Jaga rasio gambar */
+    border-radius: 10px;
+    object-fit: cover;
 }
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 35px; /* Consistent gap between buttons */
-            margin-top: 5px;
-            max-width: 100%; /* Fixed width to prevent resizing */
-        }
-        .button-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: auto;
-            max-width: 90px; /* Fixed width for buttons */
-        }
+
+.button-container {
+    display: grid; /* Aktifkan grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom dalam satu baris */
+    grid-auto-rows: auto; /* Tinggi baris mengikuti konten */
+    gap: 20px; /* Jarak antar tombol */
+    justify-items: center; /* Pusatkan tombol di setiap kolom */
+    width: 100%;
+    max-width: 350px; /* Batas maksimum lebar */
+}
+.button-item {
+    text-align: center;
+}
         .button-container button {
             background-color: #fff;
             border: none;
@@ -82,7 +90,6 @@
             padding: 0px;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
             justify-content: center;
             align-items: center;
             width: 100px; /* Fixed width */
@@ -112,7 +119,7 @@
             text-align: center;
             border-radius: 5px;
             transition: background-color 0.3s ease;
-            width: 100%; /* Consistent width */
+            width: 100px; /* Consistent width */
             box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.08);
         }
         .button-container p:hover {
@@ -148,20 +155,23 @@
             color: #3080f7;
             font-weight: bold;
         }
+        
     </style>
 </head>
 <body>
   <div class="container" id="container">
     <!-- Halaman Beranda -->
-  <div class="page home">
-  </div>
+    <div class="page home" id="home-page">
+        <p>gfgfvjufyfytfytfytfytfyf</p>
+    </div>
 
-  <!-- Halaman Pustaka -->
-  <div class="page library">
-  </div>
+    <!-- Halaman Pustaka -->
+    <div class="page library" id="library-page" style="display: none;">
+        <p>tftftftftftftf</p>
+    </div>
 
   <!-- Halaman Dashboard -->
-    <div class="page dashboard">
+    <div class="page dashboard" id="dashboard-page" style="display: none;">
     <div class="banner">
         <img src="GAMBAR/kkf.jpg" alt="Banner"> <!-- Ganti dengan path gambar banner Anda -->
     </div>
@@ -214,17 +224,30 @@
   </div>
 
   <script>
-      const container = document.getElementById('container');
-      const buttons = document.querySelectorAll('.nav-bar button');
+     function navigateTo(index) {
+  // ID halaman sesuai urutan tombol
+  const pages = ['home-page', 'library-page', 'dashboard-page'];
+  const pageId = pages[index];
 
-      function navigateTo(index) {
-          // Pindahkan container ke halaman yang diinginkan
-          container.style.transform = `translateX(-${index * 100}%)`;
+  // Sembunyikan semua halaman
+  document.querySelectorAll('.page').forEach(page => {
+    page.style.display = 'none';
+    page.classList.remove('active');
+  });
 
-          // Atur tombol navigasi aktif
-          buttons.forEach(button => button.classList.remove('active'));
-          buttons[index].classList.add('active');
-      }
+  // Tampilkan halaman yang diminta
+  const activePage = document.getElementById(pageId);
+  activePage.style.display = 'flex';
+  activePage.classList.add('active');
+
+  // Atur tombol navigasi aktif
+  document.querySelectorAll('.nav-bar button').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  document.querySelectorAll('.nav-bar button')[index].classList.add('active');
+}
+
   </script>
 </body>
 </html>
