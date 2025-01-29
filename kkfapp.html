@@ -23,6 +23,128 @@
 body, html {
   height: 100%;
 }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    flex-direction: column; /* Susun elemen secara vertikal */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    justify-content: flex-start; /* Tempatkan elemen di bagian atas */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    height: 100vh;
+}
+@media (max-width: 768px) {
+    .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        grid-template-columns: 1fr; /* 1 kolom di layar sangat kecil */
+    }
+}
+
+.container {
+    display: block; /* Atur sebagai flex container */
+}
+
+.page.active {
+    display: block; /* Atur sebagai flex container */
+    }
+.button-container {
+    display: grid; /* Aktifkan grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom dalam satu baris */
+    grid-auto-rows: auto; /* Tinggi baris mengikuti konten */
+    gap: 15px; /* Jarak antar tombol */
+    justify-items: center; /* Pusatkan tombol di setiap kolom */
+    width: 100%;
+    max-width: 370px; /* Batas maksimum lebar */
+}
+.button-item {
+    text-align: center;
+}
+        .button-container button {
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 0px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-content: center;
+            align-items: center;
+            width: 100px; /* Fixed width */
+            height: 90px; /* Fixed height */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .button-container button:hover {
+            background-color: #3080f7;
+            color: #fff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+        .button-container img {
+            width: 60%; /* Consistent image size */
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .button-container button:hover img {
+            transform: scale(1.1);
+        }
+        .button-container p {
+            margin: 5px 0 0 0;
+            padding: 5px;
+            background: linear-gradient(45deg, #3080f7, #56ccf2);
+            color: white;
+            font-size: 12px; /* Slightly smaller font size for better fit */
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 90px; /* Consistent width */
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .button-container p:hover {
+            background: linear-gradient(45deg, #256bbd, #4a90e2);
+        }
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .nav-bar button:hover {
+            color: #3080f7;
+        }
+
+        .nav-bar button.active {
+            color: #3080f7;
+            font-weight: bold;
+        }
+        
+  
+.container {
+    display: block; /* Atur sebagai flex container */
+
+}
+
 body {
   font-family: Arial, sans-serif;
 }
@@ -36,7 +158,6 @@ body {
 td button{
     width: 100%;
     padding: 8px 12px;
-    
     background: linear-gradient(45deg, #256bbd, #4a90e2);
     color: white;
     border: none;
@@ -120,6 +241,8 @@ td button:active {
   border-collapse: collapse;
   max-width: 100%;
   margin-bottom: 5px;
+  margin-left: 10px;
+    margin-right: 10px;
 }
 #dataTable1 tr:last-child td, 
 #dataTable2 tr:last-child td, 
@@ -403,6 +526,8 @@ td button:active {
     justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
     align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
     text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .konten .fa-chevron-right {
   font-size: 12px;
@@ -414,40 +539,19 @@ td button:active {
   margin-left: 10px; /* Jarak antara teks dan ikon */
 }
 .search-box {
-    width: 100%;
+    width: auto;
     display: flex;
     z-index: 10000;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 input[type="text"] {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    border-radius: 3px 0 0 3px;
-}
-button {
-    width: 20%;
-    padding: 10px;
-    background-color: #21958b;
-    color: #fff;
-    border: 1px solid #69694ca8;
-    border-radius: 0 3px 3px 0;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #1a371f;
-}
-.copy-button {
-  font-size: 12px;
-  padding: 5px;
-  margin-left: 10px;
-  cursor: pointer;
-  visibility: hidden; /* Tombol tersembunyi secara default */
-}
-
-td:hover .copy-button {
-  visibility: visible; /* Tombol hanya muncul saat hover pada sel */
+    border-radius: 3px;
 }
 .nav-bar {
             position: fixed;
@@ -484,8 +588,7 @@ td:hover .copy-button {
 <body>
 <div class="search-container">
   <form action="#" method="GET" class="search-box">
-    <input type="text" id="searchInput" placeholder="" required>
-          <button class="search-button" type="submit">Cari</button>
+    <input type="text" id="searchInput" placeholder="Cari ..." required>
   </form>
 </div>
 <span id="searchResult"></span>
