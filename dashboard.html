@@ -209,12 +209,12 @@
     <!-- Tombol Navigasi -->
 <div class="nav-bar">
       <button id="btn-home" onclick="navigateTo(0)"><i class="fas fa-home"></i> Beranda</button>
-      <button id="btn-library" onclick="navigateTo(1)"><i class="fas fa-book"></i> Maktabah</button>
+      <button id="btn-library" onclick="navigateTo(1)"><i class="fas fa-book"></i> Pustaka</button>
       <button id="btn-dashboard" class="active" onclick="navigateTo(2)"><i class="fas fa-border-all"></i> Dashboard</button>
 </div>
 <script>
     function navigateTo(pageIndex) {
-    const pages = ["kkfapp.html", "https://digitalsantri.github.io/DATA/MAKTABAH/PERPUSTAKAAN.html", "dashboard.html"];
+    const pages = ["kkfapp.html", "pustaka.html", "dashboard.html"];
     
     if (pageIndex >= 0 && pageIndex < pages.length) {
         window.location.href = pages[pageIndex];
