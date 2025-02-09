@@ -300,6 +300,15 @@ button:hover {
     </style>
 </head>
     <body> 
+         <script>
+        // Cek apakah pengguna sudah login
+        if (localStorage.getItem('loggedin') !== 'true') {
+            window.location.href = 'login.html';
+        } else {
+            // Menyembunyikan URL setelah berhasil login
+            history.replaceState(null, null, ' ');
+        }
+    </script>
       <div class="search-container">
         <form action="#" method="GET" class="search-box">
           <input type="text" id="searchInput" placeholder="" required>
@@ -394,9 +403,8 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
     searchTables(); // Memanggil fungsi pencarian
 });
 </script>
-<a href="perpus1.html" class="konten">
+<a href="#" class="konten">
   <span>Kitab kuning</span>
-  <i class="fas fa-chevron-right"></i>
 </a>   
 <div id="image-container"></div>
     <!-- Second table -->
@@ -414,10 +422,7 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
         </div>
       </div>
     </div>
-    <a href="perpus2.html" class="konten1">
-      <span>kitab makna</span>
-      <i class="fas fa-chevron-right"></i>
-    </a>     
+      
         <!-- First table -->
     <div class="chat-container">
       <div class="chat-body" id="chatBody">
@@ -433,10 +438,7 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
         </div>
       </div>
     </div>
-    <a href="perpus3.html" class="konten1">
-      <span>Tarjimah kitab</span>
-      <i class="fas fa-chevron-right"></i>
-    </a> 
+    
     <!-- Second table -->
     <div class="chat-container">
       <div class="chat-body" id="chatBody2">
@@ -569,8 +571,8 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
   return null; // Jika tidak ditemukan ID
 }
       getData(SPREADSHEET_ID_0, RANGE_0, 'dataTable0');
-      getData(SPREADSHEET_ID_1, RANGE_1, 'dataTable1');
-      getData(SPREADSHEET_ID_2, RANGE_2, 'dataTable2');
+      getData(SPREADSHEET_ID_1, RANGE_1, '');
+      getData(SPREADSHEET_ID_2, RANGE_2, '');
     </script>
     
   </body>

@@ -286,7 +286,7 @@ button:hover {
   justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
   align-items: center;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 45px;
 }
 .konten1 .fa-chevron-right {
   font-size: 12px;
@@ -300,6 +300,15 @@ button:hover {
     </style>
 </head>
     <body> 
+         <script>
+        // Cek apakah pengguna sudah login
+        if (localStorage.getItem('loggedin') !== 'true') {
+            window.location.href = 'login.html';
+        } else {
+            // Menyembunyikan URL setelah berhasil login
+            history.replaceState(null, null, ' ');
+        }
+    </script>
       <div class="search-container">
         <form action="#" method="GET" class="search-box">
           <input type="text" id="searchInput" placeholder="" required>
@@ -394,10 +403,7 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
     searchTables(); // Memanggil fungsi pencarian
 });
 </script>
-<a href="perpus1.html" class="konten">
-  <span>Kitab kuning</span>
-  <i class="fas fa-chevron-right"></i>
-</a>   
+ 
 <div id="image-container"></div>
     <!-- Second table -->
     <div class="chat-container">
@@ -414,9 +420,8 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
         </div>
       </div>
     </div>
-    <a href="perpus2.html" class="konten1">
+    <a href="#" class="konten1">
       <span>kitab makna</span>
-      <i class="fas fa-chevron-right"></i>
     </a>     
         <!-- First table -->
     <div class="chat-container">
@@ -433,10 +438,7 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
         </div>
       </div>
     </div>
-    <a href="perpus3.html" class="konten1">
-      <span>Tarjimah kitab</span>
-      <i class="fas fa-chevron-right"></i>
-    </a> 
+    
     <!-- Second table -->
     <div class="chat-container">
       <div class="chat-body" id="chatBody2">
@@ -568,9 +570,9 @@ document.querySelector('.search-box').addEventListener('submit', function(event)
   
   return null; // Jika tidak ditemukan ID
 }
-      getData(SPREADSHEET_ID_0, RANGE_0, 'dataTable0');
+      getData(SPREADSHEET_ID_0, RANGE_0, '');
       getData(SPREADSHEET_ID_1, RANGE_1, 'dataTable1');
-      getData(SPREADSHEET_ID_2, RANGE_2, 'dataTable2');
+      getData(SPREADSHEET_ID_2, RANGE_2, '');
     </script>
     
   </body>
