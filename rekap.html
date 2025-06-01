@@ -57,6 +57,66 @@
       .rekap-item { flex-direction: column; align-items: flex-start; }
       .value { margin-top: 0.5rem; }
     }
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      z-index: 2000;
+      width: 100%;
+      height: 70px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid #eee;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    .nav-bar button {
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      flex: 1;
+      padding: 8px 0;
+    }
+    
+    .nav-bar button i {
+      font-size: 20px;
+      margin-bottom: 3px;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-bar button:hover,
+    .nav-bar button.active {
+      color: #21958b;
+    }
+    
+    .nav-bar button.active i {
+      color: #21958b;
+    }
+    
+    .nav-bar button.active {
+      font-weight: 600;
+      position: relative;
+    }
+    
+    .nav-bar button.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      background-color: #21958b;
+      border-radius: 2px 2px 0 0;
+    }
+    
   </style>
 </head>
 <body>
@@ -118,6 +178,27 @@
   }
 
   fetchRekap();
+</script>
+<div class="nav-bar">
+  <button id="btn-home" class="active" onclick="navigateTo(0)">
+    <i class="fas fa-home"></i> REKAPITULASI
+  </button>
+  <button id="btn-library" onclick="navigateTo(1)">
+    <i class="fas fa-book"></i> LAPORAN
+  </button>
+  <button id="btn-dashboard" onclick="navigateTo(2)">
+    <i class="fas fa-th-large"></i> KEUANGAN
+  </button>
+  
+</div>
+<script>
+function navigateTo(pageIndex) {
+const pages = ["rekap.html", "laporan.html", "keuangan.html"];
+
+if (pageIndex >= 0 && pageIndex < pages.length) {
+    window.location.href = pages[pageIndex];
+}
+}
 </script>
 
 </body>
