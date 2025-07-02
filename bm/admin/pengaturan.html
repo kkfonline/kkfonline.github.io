@@ -92,39 +92,43 @@
       
   </section>
 
-  <script>
-    // Navigasi ke halaman lain dengan tetap membawa ID
-    function goTo(page) {
-      const userId = new URLSearchParams(window.location.search).get("id");
-      if (!userId) {
-        alert("ID user tidak ditemukan!");
-        window.location.href = "login.html";
-        return;
-      }
-      window.location.href = `${page}.html?id=${userId}`;
-    }
-
-    // Logout
-    function logout() {
+ <script>
+  // Navigasi ke halaman lain dengan tetap membawa ID
+  function goTo(page) {
+    const userId = new URLSearchParams(window.location.search).get("id");
+    if (!userId) {
+      alert("ID user tidak ditemukan!");
       window.location.href = "login.html";
+      return;
     }
+    window.location.href = `${page}.html?id=${userId}`;
+  }
 
-    // Buka Google Sheet (browser atau WebView)
-    function openSheet(sheetId) {
-      const url = `https://docs.google.com/spreadsheets/d/${sheetId}`;
-      
-      // Jika dijalankan di WebView MIT App Inventor dengan fungsi Android
-      if (window.AndroidFunction && typeof window.AndroidFunction.openUrl === 'function') {
-        window.AndroidFunction.openUrl(url);
-      } else {
-        // Buka di tab baru jika di browser biasa
-        window.open(url, '_blank');
-      }
+  // Fungsi Logout
+  function logout() {
+    window.location.href = "login.html";
+  }
+
+  // Fungsi untuk membuka Google Sheet
+  function openSheet(sheetId) {
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+
+    // Jika dijalankan di dalam WebView Kodular/MIT App Inventor
+    if (window.AppInventor && typeof window.AppInventor.setWebViewString === 'function') {
+      window.AppInventor.setWebViewString(url);
+    } else if (typeof window.AndroidFunction === 'object' && typeof window.AndroidFunction.openSheetUrl === 'function') {
+      // Jika kamu menggunakan ekstensi khusus yang mendefinisikan AndroidFunction
+      window.AndroidFunction.openSheetUrl(url);
+    } else {
+      // Jika dibuka di browser biasa
+      window.open(url, '_blank');
     }
+  }
 
-    // Simpan ID user jika diperlukan di bagian bawah
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get("id");
-  </script>
+  // Ambil ID user dari parameter URL
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get("id");
+</script>
+
 </body>
 </html>
