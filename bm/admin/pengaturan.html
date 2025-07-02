@@ -110,19 +110,17 @@
   }
 
   // Fungsi untuk membuka Google Sheet
-  function openSheet(sheetId) {
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+ function openSheet(sheetId) {
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
 
-    // Jika di WebView MIT App Inventor, Kodular, atau Niotron
-    if (window.AppInventor && typeof window.AppInventor.setWebViewString === "function") {
-      window.AppInventor.setWebViewString(url);  // Kirim URL ke WebViewString
-    } else if (typeof window.AndroidFunction === "object" && typeof window.AndroidFunction.openSheetUrl === "function") {
-      window.AndroidFunction.openSheetUrl(url);  // Alternatif untuk ekstensi khusus Android
-    } else {
-      // Jika dibuka lewat browser biasa
-      window.open(url, '_blank');
-    }
+  // Kirim ke WebView Kodular/Niotron
+  if (window.AppInventor && typeof window.AppInventor.setWebViewString === "function") {
+    window.AppInventor.setWebViewString(url);
+  } else {
+    window.open(url, '_blank'); // Untuk browser biasa
   }
+}
+
 
   // Ambil ID dari URL saat halaman dimuat
   const params = new URLSearchParams(window.location.search);
