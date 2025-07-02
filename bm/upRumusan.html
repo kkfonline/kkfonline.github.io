@@ -172,7 +172,7 @@
   <img src="/bm/img/putih.png" alt="Logo" class="logo"> <!-- Replace with your logo path -->
 
   <div class="container">
-    <h1 class="judul">UPLOAD PERTANYAAN</h1>
+    <h1 class="judul">UPLOADE RUMUSAN</h1>
     <form id="formArtikel" onsubmit="kirimData(event)">
       <input type="text" id="id" readonly class="hidden">
 
@@ -215,17 +215,17 @@
   <option value="Lainnya">Lainnya</option>
 </select>
 
-      <label for="judul">Judul Pertanyaan</label>
+      <label for="judul">Judul Rumusan</label>
       <input type="text" id="judul" placeholder="Masukan judul pembahasan" required>
 
-      <label for="isi">Deskripsi masalah</label>
-      <textarea id="isi" placeholder="Tulis isi lengkap, mulai dari deskripsi masalah dan pertanyaan..." required></textarea>
+      <label for="isi">Rumusan</label>
+      <textarea id="isi" placeholder="Tulis isi lengkap, mulai dari deskripsi masalah, pertanyaan dan ibaroh..." required></textarea>
 
-      <label for="sumber">Kontak penanya</label>
-      <input type="text" id="sumber" placeholder="Wa atau email yang bisa dihubungi" required>
+      <label for="sumber">Sumber Rumusan</label>
+      <input type="text" id="sumber" placeholder="Nama Forum" required>
 
       <button type="submit" id="btnSubmit">
-        UPLOAD PERTANYAAN
+        UPLOADE RUMUSAN
       </button>
     </form>
 
@@ -256,7 +256,7 @@
   </script>
   
   <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcnwhFkoGPAYxp8mbJCPGZL4wiNukODF_Dsv74adaoUyeFDpn44Es0s1wPKSTi4eyz/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwxvXnhjOJHH3NZX5fyJNz3IzRsEDugox0zzqHAKbfRMa8N9mRbRJ2H2H8r4SbCYaBeVw/exec';
 
     function kirimData(e) {
       e.preventDefault();

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengaturan & Database</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+
+    .topbar {
+        background: linear-gradient(135deg, rgb(43, 113, 197), rgb(26, 81, 148));
+        color: white;
+      padding: 16px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .extra-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .extra-btn,
+    .logout-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, rgb(43, 113, 197), rgb(26, 81, 148));
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .logout-btn {
+      background-color: #e74c3c;
+    }
+
+    .extra-btn:hover,
+    .logout-btn:hover {
+      opacity: 0.9;
+    }
+    .admin{
+        padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: rgb(232, 39, 39);
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">Pengaturan & Database</header>
+
+  <section class="extra-section">
+    <button onclick="openSheet('13t3ZoMto6c2IAvMLk88mKU6ClT5rtZ_0fGV5VfYdT-U')" class="extra-btn">
+        <i class="fa-solid fa-database"></i> Database Rumusan KKF
+      </button>
+    <button onclick="openSheet('1YbxvxOHs_3YXX8QhAZWTaKpP8O_CYqKUwfYWm-OOTLg')" class="extra-btn">
+      <i class="fa-solid fa-database"></i> Rumusan masuk
+    </button>
+    <button onclick="openSheet('15DUyoLUStcg55HBFLHz_JHG4mYiLaXAisQFlDa0VfXg')" class="extra-btn">
+        <i class="fa-solid fa-database"></i> Soal masuk
+      </button>
+      <button onclick="openSheet('1QNCXF_fd-2Y79k_qOSbVrVqwuJALTDkARbmxMowDKbc')" class="extra-btn">
+        <i class="fa-solid fa-database"></i> Kitab PDF
+      </button>
+      <button class="admin" onclick="openSheet('129nJBR5-QKWFjo6xRD7JyaPXTVlxsR1IVpF41VgOSeE')" class="extra-btn">
+        <i class="fas fa-user"></i> Daftar admin
+      </button>
+      
+  </section>
+
+  <script>
+    // Navigasi ke halaman lain dengan tetap membawa ID
+    function goTo(page) {
+      const userId = new URLSearchParams(window.location.search).get("id");
+      if (!userId) {
+        alert("ID user tidak ditemukan!");
+        window.location.href = "login.html";
+        return;
+      }
+      window.location.href = `${page}.html?id=${userId}`;
+    }
+
+    // Logout
+    function logout() {
+      window.location.href = "login.html";
+    }
+
+    // Buka Google Sheet (browser atau WebView)
+    function openSheet(sheetId) {
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}`;
+      
+      // Jika dijalankan di WebView MIT App Inventor dengan fungsi Android
+      if (window.AndroidFunction && typeof window.AndroidFunction.openUrl === 'function') {
+        window.AndroidFunction.openUrl(url);
+      } else {
+        // Buka di tab baru jika di browser biasa
+        window.open(url, '_blank');
+      }
+    }
+
+    // Simpan ID user jika diperlukan di bagian bawah
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id");
+  </script>
+</body>
+</html>
