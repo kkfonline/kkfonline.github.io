@@ -93,7 +93,7 @@
   </section>
 
  <script>
-  // Fungsi navigasi ke halaman lain dengan membawa ID
+  // Navigasi ke halaman lain dengan tetap membawa ID
   function goTo(page) {
     const userId = new URLSearchParams(window.location.search).get("id");
     if (!userId) {
@@ -104,29 +104,31 @@
     window.location.href = `${page}.html?id=${userId}`;
   }
 
-  // Fungsi logout ke halaman login
+  // Fungsi Logout
   function logout() {
     window.location.href = "login.html";
   }
 
   // Fungsi untuk membuka Google Sheet
- function openSheet(sheetId) {
-  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+  function openSheet(sheetId) {
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
 
-  // Kirim ke WebView Kodular/Niotron
-  if (window.AppInventor && typeof window.AppInventor.setWebViewString === "function") {
-    window.AppInventor.setWebViewString(url);
-  } else {
-    window.open(url, '_blank'); // Untuk browser biasa
+    // Jika dijalankan di dalam WebView Kodular/MIT App Inventor
+    if (window.AppInventor && typeof window.AppInventor.setWebViewString === 'function') {
+      window.AppInventor.setWebViewString(url);
+    } else if (typeof window.AndroidFunction === 'object' && typeof window.AndroidFunction.openSheetUrl === 'function') {
+      // Jika kamu menggunakan ekstensi khusus yang mendefinisikan AndroidFunction
+      window.AndroidFunction.openSheetUrl(url);
+    } else {
+      // Jika dibuka di browser biasa
+      window.open(url, '_blank');
+    }
   }
-}
 
-
-  // Ambil ID dari URL saat halaman dimuat
+  // Ambil ID user dari parameter URL
   const params = new URLSearchParams(window.location.search);
   const userId = params.get("id");
 </script>
-
 
 </body>
 </html>
