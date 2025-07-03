@@ -75,53 +75,69 @@
 
   <section class="extra-section">
     <button onclick="openSheet('13t3ZoMto6c2IAvMLk88mKU6ClT5rtZ_0fGV5VfYdT-U')" class="extra-btn">
-        <i class="fa-solid fa-database"></i> Database Rumusan KKF
-      </button>
+      <i class="fa-solid fa-database"></i> Database Rumusan KKF
+    </button>
     <button onclick="openSheet('1YbxvxOHs_3YXX8QhAZWTaKpP8O_CYqKUwfYWm-OOTLg')" class="extra-btn">
-      <i class="fa-solid fa-database"></i> Rumusan masuk
+      <i class="fa-solid fa-database"></i> Rumusan Masuk
     </button>
     <button onclick="openSheet('15DUyoLUStcg55HBFLHz_JHG4mYiLaXAisQFlDa0VfXg')" class="extra-btn">
-        <i class="fa-solid fa-database"></i> Soal masuk
-      </button>
-      <button onclick="openSheet('1QNCXF_fd-2Y79k_qOSbVrVqwuJALTDkARbmxMowDKbc')" class="extra-btn">
-        <i class="fa-solid fa-database"></i> Kitab PDF
-      </button>
-      <button class="admin" onclick="openSheet('129nJBR5-QKWFjo6xRD7JyaPXTVlxsR1IVpF41VgOSeE')" class="extra-btn">
-        <i class="fas fa-user"></i> Daftar admin
-      </button>
-      
+      <i class="fa-solid fa-database"></i> Soal Masuk
+    </button>
+    <button onclick="openSheet('1QNCXF_fd-2Y79k_qOSbVrVqwuJALTDkARbmxMowDKbc')" class="extra-btn">
+      <i class="fa-solid fa-database"></i> Kitab PDF
+    </button>
+    <button onclick="openSheet('129nJBR5-QKWFjo6xRD7JyaPXTVlxsR1IVpF41VgOSeE')" class="admin">
+      <i class="fas fa-user"></i> Daftar Admin
+    </button>
   </section>
 
- <script>
-  // Navigasi ke halaman lain dengan tetap membawa ID
-  function goTo(page) {
-    const userId = new URLSearchParams(window.location.search).get("id");
-    if (!userId) {
-      alert("ID user tidak ditemukan!");
-      window.location.href = "login.html";
-      return;
+  <script>
+    // Ambil ID user dari parameter URL
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id");
+
+    // Navigasi ke halaman lain dengan tetap membawa ID
+    function goTo(page) {
+      if (!userId) {
+        alert("ID user tidak ditemukan!");
+        window.location.href = "login.html";
+        return;
+      }
+      window.location.href = `${page}.html?id=${userId}`;
     }
-    window.location.href = `${page}.html?id=${userId}`;
-  }
 
-  // Fungsi Logout
-  function logout() {
-    window.location.href = "login.html";
-  }
+    // Fungsi Logout
+    function logout() {
+      window.location.href = "login.html";
+    }
 
-  function openSheetLink() {
-  AndroidFunction.openLink("https://docs.google.com/spreadsheets/d/...");
-}
+    // Fungsi untuk membuka Google Sheet berdasarkan ID Sheet
+    function openSheet(sheetId) {
+      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
 
-function shareToApps() {
-  AndroidFunction.shareText("Ini linknya: https://kkfonline.github.io/bm/");
-}
+      if (window.AppInventor?.setWebViewString) {
+        // Kodular / MIT App Inventor
+        window.AppInventor.setWebViewString(url);
 
+      } else if (window.AndroidFunction?.openSheetUrl) {
+        // Android Studio WebView
+        window.AndroidFunction.openSheetUrl(url);
 
-  // Ambil ID user dari parameter URL
-  const params = new URLSearchParams(window.location.search);
-  const userId = params.get("id");
-</script>
+      } else {
+        // Browser biasa
+        window.open(url, '_blank');
+      }
+    }
 
+    // Fungsi tambahan jika ingin membagikan tautan ke aplikasi lain
+    function shareToApps(text = "Ini linknya: https://kkfonline.github.io/bm/") {
+      if (window.AndroidFunction?.shareText) {
+        window.AndroidFunction.shareText(text);
+      } else {
+        alert("Fitur berbagi hanya tersedia di dalam aplikasi.");
+      }
+    }
+  </script>
 </body>
+
 </html>
