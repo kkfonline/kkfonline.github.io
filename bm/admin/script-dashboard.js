@@ -50,8 +50,12 @@ function goTo(page) {
 
 // Logout
 function logout() {
+  if (typeof AndroidFunction !== "undefined") {
+    AndroidFunction.logout(); // Hapus ID dari storage Android
+  }
   window.location.href = "login.html";
 }
+
 
   const params = new URLSearchParams(window.location.search);
   const userId = params.get("id");
