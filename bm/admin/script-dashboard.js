@@ -5,7 +5,6 @@ window.onload = () => {
   const id = params.get("id");
 
   if (!id) {
-    alert("Silakan login terlebih dahulu.");
     window.location.href = "login.html";
     return;
   }

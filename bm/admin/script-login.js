@@ -67,7 +67,6 @@
         }
       })
       .catch(err => {
-        alert("Terjadi kesalahan jaringan.");
         btn.classList.remove("loading");
       });
   }
