@@ -453,25 +453,38 @@ background: linear-gradient(135deg, rgb(43, 113, 197), rgb(26, 81, 148));
   
 
   function setupShare() {
-    const title = document.getElementById('judul').textContent;
-    const url = location.href;
-    const appLink = 'https://drive.google.com/file/d/1dQiHR8cBVxIeRzqp2ee1l26FQiECTXQS/view?usp=drivesdk'; // ganti dengan link asli aplikasi
-  
-    const text = `${title}\n${url}\n__________\nAyo install aplikasi KKF dari Google Drive sekarang juga:\n${appLink}`;
-  
-    const btn = document.getElementById('shareBtn');
-    btn.onclick = () => {
-      if (window.AppInventor) {
-        window.AppInventor.setWebViewString(text);
-        window.location = url;
-      } else if (navigator.share) {
-        navigator.share({ title, text, url });
-      } else {
-        navigator.clipboard.writeText(text);
-        alert('Teks disalin ke clipboard.');
-      }
-    };
-  }
+  const title = document.getElementById('judul')?.textContent || "Judul Tidak Ditemukan";
+  const url = location.href;
+  const appLink = 'https://drive.google.com/file/d/1dQiHR8cBVxIeRzqp2ee1l26FQiECTXQS/view?usp=drivesdk';
+
+  const text = `${title}\n${url}\n__________\nAyo install aplikasi KKF dari Google Drive sekarang juga:\n${appLink}`;
+
+  const btn = document.getElementById('shareBtn');
+  if (!btn) return;
+
+  btn.onclick = () => {
+    if (typeof AndroidFunction === 'object' && typeof AndroidFunction.shareText === 'function') {
+      // ✅ Untuk Android Studio (WebView)
+      AndroidFunction.shareText(text);
+    } else if (typeof window.AppInventor !== 'undefined') {
+      // 🟡 Untuk MIT App Inventor
+      window.AppInventor.setWebViewString(text);
+      window.location = url;
+    } else if (navigator.share) {
+      // 🟢 Jika dibuka di browser modern
+      navigator.share({
+        title: title,
+        text: text,
+        url: url,
+      });
+    } else {
+      // 🟠 Jika tidak mendukung, fallback copy ke clipboard
+      navigator.clipboard.writeText(text);
+      alert('Teks disalin ke clipboard.');
+    }
+  };
+}
+
   
   async function load() {
     const resp = await fetch(`${API}?id=${id}`);
@@ -553,13 +566,7 @@ background: linear-gradient(135deg, rgb(43, 113, 197), rgb(26, 81, 148));
 
   window.addEventListener('DOMContentLoaded', load);
   
-function openSheetLink() {
-  AndroidFunction.openLink("https://docs.google.com/spreadsheets/d/...");
-}
 
-function shareToApps() {
-  AndroidFunction.shareText("Ini linknya: https://kkfonline.github.io/bm/");
-}
 
 </script>
 
