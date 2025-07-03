@@ -180,15 +180,7 @@
       // document.getElementById("loginBtn").disabled = false;
       // document.getElementById("loginBtn").innerHTML = 'Login';
     }
-    function simpanLoginLocal(email, id, nama) {
-  if (typeof AndroidFunction !== "undefined") {
-    AndroidFunction.saveLoginData("email", email);
-    AndroidFunction.saveLoginData("id", id);
-    AndroidFunction.saveLoginData("nama", nama);
-  } else {
-    console.log("Tidak dijalankan di Android");
-  }
-}
+   
 
   </script>
   <script src="script-login.js"></script>
