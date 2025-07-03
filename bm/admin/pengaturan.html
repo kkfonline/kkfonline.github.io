@@ -109,21 +109,14 @@
     window.location.href = "login.html";
   }
 
-  // Fungsi untuk membuka Google Sheet
-  function openSheet(sheetId) {
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+  function openSheetLink() {
+  AndroidFunction.openLink("https://docs.google.com/spreadsheets/d/...");
+}
 
-    // Jika dijalankan di dalam WebView Kodular/MIT App Inventor
-    if (window.AppInventor && typeof window.AppInventor.setWebViewString === 'function') {
-      window.AppInventor.setWebViewString(url);
-    } else if (typeof window.AndroidFunction === 'object' && typeof window.AndroidFunction.openSheetUrl === 'function') {
-      // Jika kamu menggunakan ekstensi khusus yang mendefinisikan AndroidFunction
-      window.AndroidFunction.openSheetUrl(url);
-    } else {
-      // Jika dibuka di browser biasa
-      window.open(url, '_blank');
-    }
-  }
+function shareToApps() {
+  AndroidFunction.shareText("Ini linknya: https://kkfonline.github.io/bm/");
+}
+
 
   // Ambil ID user dari parameter URL
   const params = new URLSearchParams(window.location.search);
