@@ -113,21 +113,15 @@
 
     // Fungsi untuk membuka Google Sheet berdasarkan ID Sheet
     function openSheet(sheetId) {
-      const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/edit`;
 
-      if (window.AppInventor?.setWebViewString) {
-        // Kodular / MIT App Inventor
-        window.AppInventor.setWebViewString(url);
+  if (typeof AndroidFunction === 'object' && typeof AndroidFunction.openLink === 'function') {
+    AndroidFunction.openLink(url);
+  } else {
+    window.location.href = url;
+  }
+}
 
-      } else if (window.AndroidFunction?.openSheetUrl) {
-        // Android Studio WebView
-window.AndroidFunction.openLink(url);
-
-      } else {
-        // Browser biasa
-        window.open(url, '_blank');
-      }
-    }
 
     // Fungsi tambahan jika ingin membagikan tautan ke aplikasi lain
     function shareToApps(text = "Ini linknya: https://kkfonline.github.io/bm/") {
