@@ -465,7 +465,7 @@ background: linear-gradient(135deg, rgb(43, 113, 197), rgb(26, 81, 148));
   btn.onclick = () => {
     if (typeof AndroidFunction === 'object' && typeof AndroidFunction.shareText === 'function') {
       // ✅ Untuk Android Studio (WebView)
-      Android.sendToAndroid(text);
+    AndroidFunction.shareText(text);
     } else if (typeof window.AppInventor !== 'undefined') {
       // 🟡 Untuk MIT App Inventor
       window.AppInventor.setWebViewString(text);
